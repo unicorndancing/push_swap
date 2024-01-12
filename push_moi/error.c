@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 10:42:37 by mlapique          #+#    #+#             */
-/*   Updated: 2024/01/10 13:02:25 by mlapique         ###   ########.fr       */
+/*   Created: 2024/01/10 10:45:46 by mlapique          #+#    #+#             */
+/*   Updated: 2024/01/12 15:50:44 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(stack_t **src, stack_t **dest)
+int	error(int Error_code)
 {
-	stack_t	*tmp;
-
-	if (*src == NULL)
-		return ;
-	tmp = (*src)->next;
-	(*src)->next = *dest;
-	*dest = *src;
-	*src = tmp;
-}
-
-void	do_pa(stack_t **stack_a, stack_t **stack_b)
-{
-	push(stack_b, stack_a);
-	ft_putstr("pa\n");
-}
-
-void	do_pb(stack_t **stack_a, stack_t **stack_b)
-{
-	push(stack_a, stack_b);
-	ft_putstr("pb\n");
+	if (Error_code == 1)
+		write (2, "error not a number", 15);
+	else if (Error_code == 2)
+		write (2, "error not a integer", 15);
+	else if (Error_code == 3)
+		write (2, "error too many number", 15);
+	return (-1);
 }

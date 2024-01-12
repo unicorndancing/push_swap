@@ -1,8 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/10 10:42:40 by mlapique          #+#    #+#             */
+/*   Updated: 2024/01/10 13:02:04 by mlapique         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-static void	rev_rotate(stack_t **stack)
+void	rev_rotate(stack_t **stack)
 {
 	stack_t	*tmp;
 	stack_t	*feet;

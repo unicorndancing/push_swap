@@ -2,7 +2,7 @@ NAME = libft.a
 OBJS = $(SOURCES:.c=.o) #remplace les .c par des .o dans les sources
 OBJSBNS = $(SOURCESBONUS:.c=.o)
 CC = cc
-CFLAGS = -Wall -Wextra -Werror #fsanitize=adress pour les leaks de memoires
+CFLAGS = -Wall -Wextra -Werror -g3#fsanitize=adress pour les leaks de memoires
 SOURCES = ft_isalnum.c \
  	ft_isprint.c \
   	ft_memcpy.c   \

@@ -1,32 +1,33 @@
-NAME = push_swap
-
 CC = cc
-
-CFLAGS = -Werror -Wall -Wextra -fsanitize=address -g3
-
+CFLAGS = -Wall -Wextra -Werror -g3
 RM = rm -rf
+NAME = libftpush
+OBJS = $(SRCS:.c=.o)
 
-SRCS = 	pipex_bonus.c\
-	utils_bonus.c\
-	libft/libft.a\
+SRCS = 	error.c \
+		verif_value.c \
+		initialize.c \
+		main.c 
+		
 
-$(NAME) :
-	make all -C libft
-	cc $(CFLAGS) $(SRCS) -o $(NAME)
+all: $(NAME)
 
+$(NAME): $(OBJS)
+	$(MAKE) -C ./libft
+	cp libft/libft.a $(NAME)
+	ar rc $(NAME) $(OBJS)
 
-all : $(NAME)
+%.o : %.c
+	$(CC) $(CFLAGS) -c $< -o $@ 
 
-fclean : clean
+clean:
+	$(MAKE) clean -C ./libft
+	$(RM) $(OBJS)
+
+fclean: clean
+	$(MAKE) fclean -C ./libft
 	$(RM) $(NAME)
-	make fclean -C libft
 
-clean :
-	$(RM) $(NAME)
-	make clean -C libft
+re: fclean all
 
-re : fclean all
-
-bonus : clean
-	make all -C libft
-	cc $(CFLAGS) $(SRCS_BONUS) -o $(NAME)
+.PHONY: all clean fclean re
