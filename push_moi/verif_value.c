@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:49:55 by mlapique          #+#    #+#             */
-/*   Updated: 2024/01/12 15:49:57 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/01/13 13:35:20 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*trim_zero_and_sign(char *argv, int *psign)
 		if (argv[0] == '-')
 			*psign = -1;
 	}
-	while (argv[i] == '0')
+	while (argv[i] == '0' && argv[i + 1] != '\0')
 		i++;
 	return (ft_substr(argv, i, ft_strlen(argv)));
 }

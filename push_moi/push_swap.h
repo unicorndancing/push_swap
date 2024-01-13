@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:42:50 by mlapique          #+#    #+#             */
-/*   Updated: 2024/01/12 16:17:40 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/01/13 14:44:08 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,17 @@ enum e_ErrorCode : ushort
 
 typedef struct s_stack
 {
-	int				value;
+	int				integer;
+	char			value[11];
 	struct s_stack	*next;
 	struct s_stack	*previous;
-	int				number_of_numbers;
 	int				index;
 	int				cost;
 }				t_stack;
 //verification value
 int		verif_values_ini(char *argv[]);
 //initialization value
+void	ft_lstadd(t_stack **lst, t_stack *new);
 int		ini_stack(char *argv[], t_stack **stack_a);
 // the errors
 int		error(int ErrorCode);

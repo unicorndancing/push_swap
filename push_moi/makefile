@@ -7,6 +7,7 @@ OBJS = $(SRCS:.c=.o)
 SRCS = 	error.c \
 		verif_value.c \
 		initialize.c \
+		lstaddback.c \
 		main.c 
 		
 

@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   lstaddback.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 16:54:50 by mlapique          #+#    #+#             */
-/*   Updated: 2024/01/13 13:45:15 by mlapique         ###   ########.fr       */
+/*   Created: 2024/01/13 13:46:59 by mlapique          #+#    #+#             */
+/*   Updated: 2024/01/13 13:53:04 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+
+t_stack	*ft_lstlas(t_stack *lst)
 {
-	t_list	*last;
+	if (!lst)
+		return (NULL);
+	while (lst)
+	{
+		if (lst->next == NULL)
+			return (lst);
+		lst = lst->next;
+	}
+	return (lst);
+}
+
+void	ft_lstadd(t_stack **lst, t_stack *new)
+{
+	t_stack	*last;
 
 	if (!lst || !new)
 		return ;
 	if (*lst)
 	{
-		last = ft_lstlast(*lst);
+		last = ft_lstlas(*lst);
 		last->next = new;
 	}
 	else
