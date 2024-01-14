@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lstaddback.c                                       :+:      :+:    :+:   */
+/*   lstnew.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/13 13:46:59 by mlapique          #+#    #+#             */
-/*   Updated: 2024/01/14 13:50:16 by mlapique         ###   ########.fr       */
+/*   Created: 2024/01/14 14:40:59 by mlapique          #+#    #+#             */
+/*   Updated: 2024/01/14 14:41:03 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-t_stack	*ft_lstlas(t_stack *lst)
+t_stack	*lstnew(void *content)
 {
-	if (!lst)
+	t_stack	*result;
+
+	result = malloc(sizeof(t_stack));
+	if (!result)
 		return (NULL);
-	while (lst)
-	{
-		if (lst->next == NULL)
-			return (lst);
-		lst = lst->next;
-	}
-	return (lst);
-}
-
-void	ft_lstadd(t_stack **lst, t_stack *new)
-{
-	t_stack	*last;
-
-	if (!lst || !new)
-		return ;
-	if (*lst)
-	{
-		last = ft_lstlas(*lst);
-		last->next = new;
-	}
-	else
-		*lst = new;
+	*result = content;
+	result->next = NULL;
+	return (result);
 }

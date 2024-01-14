@@ -8,6 +8,8 @@ SRCS = 	error.c \
 		verif_value.c \
 		initialize.c \
 		lstaddback.c \
+		lstnew.c \
+		test.c \
 		main.c 
 		
 

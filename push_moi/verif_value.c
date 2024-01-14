@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:49:55 by mlapique          #+#    #+#             */
-/*   Updated: 2024/01/13 13:35:20 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/01/14 14:40:48 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	verif_integer(char *argv)
 	return (0);
 }
 
-int	verif_value(char *argv[], int j, int *nb_wero, int iswero)
+int	verif_value(char *argv[], int j, int *pnb_wero, int iswero)
 {
 	int	i;
 
@@ -72,8 +72,9 @@ int	verif_value(char *argv[], int j, int *nb_wero, int iswero)
 		if (verif_integer(argv[i]) < 0)
 			return (error(NOT_AN_INTEGER));
 		if (iswero == 1)
-			nb_wero++;
+			*pnb_wero += 1;
 		i++;
+		iswero = 1;
 		j = 0;
 	}
 	return (0);
@@ -90,7 +91,9 @@ int	verif_values_ini(char *argv[])
 	iswero = 1;
 	j = 0;
 	nb_wero = 0;
-	if (nb_wero > 1)
+	if (verif_value(argv, j, pnb_wero, iswero) == -1)
+		return (-1);
+	if (*pnb_wero > 1)
 		return (error(TOO_MANY_ZERO));
-	return (verif_value(argv, j, pnb_wero, iswero));
+	return (0);
 }
