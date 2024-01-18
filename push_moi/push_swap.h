@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:42:50 by mlapique          #+#    #+#             */
-/*   Updated: 2024/01/14 13:54:04 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/01/18 15:24:06 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,15 @@ typedef struct s_stack
 	int				cost;
 }				t_stack;
 //test
-int test (t_stack **stack_a);
+int		test(t_stack *stack_a);
 
 //verification value
 int		verif_values_ini(char *argv[]);
 
 //initialization value
-t_stack	*lstnew(void *content);
-void	ft_lstadd(t_stack **lst, t_stack *new);
-void	ini_stack(char *argv[], t_stack **stack_a);
+t_stack	*lstnew(int content);
+void	ft_lstadd(t_stack *lst, t_stack *new);
+void	ini_stack(char *argv[], t_stack *stack_a);
 
 // the errors
 int		error(int ErrorCode);

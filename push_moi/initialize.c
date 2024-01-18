@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:52:00 by mlapique          #+#    #+#             */
-/*   Updated: 2024/01/14 14:44:44 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/01/18 15:58:44 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ void	ini_stack(char *argv[], t_stack **stack_a)
 	i = 1;
 	while (argv[i])
 	{
-		(*stack_a)->integer = ft_atoi(argv[i]);
-		(*stack_a)->index = i;
-		usable_value(argv[i], *stack_a);
-		*new_chain = *lstnew();
+		nb = ft_atoi(argv[i]);
+		new_chain = lstnew(nb);
+		new_chain->index = i;
+		usable_value(argv[i], new_chain);
 		ft_lstadd(stack_a, new_chain);
 		i++;
 	}

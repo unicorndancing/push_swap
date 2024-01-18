@@ -1,12 +1,12 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g3
 RM = rm -rf
-NAME = libftpush
+NAME = push
 OBJS = $(SRCS:.c=.o)
 
 SRCS = 	error.c \
-		verif_value.c \
 		initialize.c \
+		verif_value.c \
 		lstaddback.c \
 		lstnew.c \
 		test.c \
