@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:52:00 by mlapique          #+#    #+#             */
-/*   Updated: 2024/01/19 15:50:41 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/01/22 17:02:55 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,46 @@ void	usable_value(char	*arg, t_stack *stack_a)
 	}
 }
 
-void	determine_cost(t_stack *stack_a)
+int	get_last_index(t_stack *stack_a)
 {
 	t_stack	*temp;
+	int		max;
 
+	temp = stack_a;
+	max = 0;
+	while (temp)
+	{
+		temp = temp->next;
+		max++;
+	}
+	return (max);
+}
+
+void	determine_cost_initial(t_stack *stack_a)
+{
+	t_stack	*temp;
+	int		max_index;
+	int		cost;
+
+	cost = 1;
+	max_index = get_last_index(stack_a);
 	temp = stack_a;
 	while (temp)
 	{
-		temp->cost = temp->index;
+		if (temp->index < (max_index + 1) / 2)
+		{
+			temp->cost = cost;
+			cost++;
+		}
+		else if (temp->index == (max_index) / 2)
+		{
+			temp->cost = cost;
+		}
+		else
+		{
+			temp->cost = cost;
+			cost--;
+		}
 		temp = temp->next;
 	}
 }
@@ -59,22 +91,21 @@ void	ini_stack(char *argv[], t_stack *stack_a)
 	int		nb;
 	t_stack	*new_chain;
 
-	i = 2;
-	nb = ft_atoi(argv[1]);
-	stack_a->previous = NULL;
+	i = 1;
+	nb = ft_atoi(argv[0]);
+	stack_a->integer = nb;
 	stack_a->index = 1;
 	stack_a->cost = 1;
 	stack_a->next = NULL;
-	stack_a->index = 1;
-	usable_value(argv[1], stack_a);
+	usable_value(argv[0], stack_a);
 	while (argv[i])
 	{
 		nb = ft_atoi(argv[i]);
 		new_chain = lstnew(nb);
-		new_chain->index = i;
+		new_chain->index = i + 1;
 		usable_value(argv[i], new_chain);
 		ft_lstadd(stack_a, new_chain);
 		i++;
 	}
-	determine_cost(stack_a);
+	determine_cost_initial(stack_a);
 }

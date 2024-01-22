@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:49:55 by mlapique          #+#    #+#             */
-/*   Updated: 2024/01/14 14:40:48 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/01/22 17:26:20 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ int	verif_value(char *argv[], int j, int *pnb_wero, int iswero)
 {
 	int	i;
 
-	i = 1;
+	i = 0;
 	while (argv[i])
 	{
 		while (argv[i][j])
 		{
 			if ((argv[i][j] == '+' || argv[i][j] == '-')
-			&& argv[i][j + 1] != '\0')
+			&& argv[i][j + 1] != '\0' && j == 0)
 				j++;
 			if (ft_isdigit(argv[i][j]) == 0)
 				return (error(NOT_A_NUMBER));
@@ -80,6 +80,26 @@ int	verif_value(char *argv[], int j, int *pnb_wero, int iswero)
 	return (0);
 }
 
+int	check_double(char *argv[])
+{
+	int	i;
+	int	j;
+
+	j = 1;
+	i = 0;
+	while (argv[i])
+	{
+		while (argv[j])
+		{
+			if (ft_strncmp(argv[j], argv[i], ft_strlen(argv[j])) == 0)
+				return (-1);
+			j++;
+		}
+		i++;
+		j = i + 1;
+	}
+	return (0);
+}
 int	verif_values_ini(char *argv[])
 {
 	int	nb_wero;
@@ -95,5 +115,7 @@ int	verif_values_ini(char *argv[])
 		return (-1);
 	if (*pnb_wero > 1)
 		return (error(TOO_MANY_ZERO));
+	if (check_double(argv) == -1)
+		return (error(DOUBLE));
 	return (0);
 }

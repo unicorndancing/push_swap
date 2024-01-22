@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:42:50 by mlapique          #+#    #+#             */
-/*   Updated: 2024/01/18 15:24:06 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/01/22 17:08:08 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ enum e_ErrorCode : ushort
 	NOT_A_NUMBER = 1,
 	NOT_AN_INTEGER = 2,
 	TOO_MANY_ZERO = 3,
+	DOUBLE = 4,
 };
 
 typedef struct s_stack
