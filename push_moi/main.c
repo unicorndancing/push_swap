@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:42:54 by mlapique          #+#    #+#             */
-/*   Updated: 2024/01/18 15:41:27 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/01/19 12:37:59 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ int	main(int argc, char *argv[])
 		return (0);
 	if (verif_values_ini(argv) == -1)
 		return (-1);
+	stack_b = malloc(sizeof (t_stack));
+	stack_a = malloc(sizeof (t_stack));
 	stack_b = NULL;
-	stack_a = NULL;
 	ini_stack(argv, stack_a);
 	test(stack_a);
 	return (0);

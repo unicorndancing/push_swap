@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:52:00 by mlapique          #+#    #+#             */
-/*   Updated: 2024/01/18 15:58:44 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/01/19 15:50:41 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ void	usable_value(char	*arg, t_stack *stack_a)
 {
 	int	len;
 	int	i;
+	int	j;
 
+	j = 0;
 	i = 0;
 	len = ft_strlen(arg);
 	while (i < 11 - len)
@@ -26,29 +28,45 @@ void	usable_value(char	*arg, t_stack *stack_a)
 	}
 	if (arg[0] == '-' || arg[0] == '+')
 	{
-		stack_a->value[i] = '0';
+		stack_a->value[i++] = '0';
+		j++;
 		if (arg[0] == '-')
 			stack_a->value[0] = '-';
 	}
-}
-
-void	determine_cost(t_stack **stack_a)
-{
-	while ((*stack_a)->next != NULL)
+	while (arg[j])
 	{
-		(*stack_a)->cost = (*stack_a)->index;
-		(*stack_a) = (*stack_a)->next;
+		stack_a->value[i] = arg[j];
+		i++;
+		j++;
 	}
 }
 
-void	ini_stack(char *argv[], t_stack **stack_a)
+void	determine_cost(t_stack *stack_a)
+{
+	t_stack	*temp;
+
+	temp = stack_a;
+	while (temp)
+	{
+		temp->cost = temp->index;
+		temp = temp->next;
+	}
+}
+
+void	ini_stack(char *argv[], t_stack *stack_a)
 {
 	int		i;
 	int		nb;
 	t_stack	*new_chain;
 
-	new_chain = NULL;
-	i = 1;
+	i = 2;
+	nb = ft_atoi(argv[1]);
+	stack_a->previous = NULL;
+	stack_a->index = 1;
+	stack_a->cost = 1;
+	stack_a->next = NULL;
+	stack_a->index = 1;
+	usable_value(argv[1], stack_a);
 	while (argv[i])
 	{
 		nb = ft_atoi(argv[i]);

@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 14:40:59 by mlapique          #+#    #+#             */
-/*   Updated: 2024/01/17 14:14:07 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/01/19 15:45:59 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_stack	*lstnew(int content)
 		return (NULL);
 	while (i < 11)
 	{
-		result->value[i] = 2;
+		result->value[i] = 97;
 		i++;
 	}
 	result->integer = content;
