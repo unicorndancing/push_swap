@@ -32,11 +32,9 @@ int	verif_integer(char *argv)
 {
 	int	len;
 	int	sign;
-	int	i;
 	int	*psign;
 
 	psign = &sign;
-	i = 0;
 	sign = 1;
 	argv = trim_zero_and_sign(argv, psign);
 	len = ft_strlen(argv);
@@ -91,8 +89,11 @@ int	check_double(char *argv[])
 	{
 		while (argv[j])
 		{
-			if (ft_strncmp(argv[j], argv[i], ft_strlen(argv[j])) == 0)
-				return (-1);
+			if (ft_strlen(argv[i]) == ft_strlen(argv[j]))
+			{
+				if (ft_strncmp(argv[j], argv[i], ft_strlen(argv[j])) == 0)
+					return (-1);
+			}
 			j++;
 		}
 		i++;

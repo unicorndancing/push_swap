@@ -79,12 +79,8 @@ char	**ft_split(char const *s, char c)
 {
 	char	**result;
 	int		i;
-	int		ind;
-	int		start;
 
-	ind = 0;
 	i = 0;
-	start = 0;
 	if (!s)
 		return (NULL);
 	result = ft_calloc(sizeof(char *), (ft_count((char *)s, c) + 1));

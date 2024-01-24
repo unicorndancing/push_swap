@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-void	push(stack_t **src, stack_t **dest)
+void	push(t_stack **src, t_stack **dest)
 {
-	stack_t	*tmp;
+	t_stack	*tmp;
 
 	if (*src == NULL)
 		return ;
@@ -24,14 +24,22 @@ void	push(stack_t **src, stack_t **dest)
 	*src = tmp;
 }
 
-void	do_pa(stack_t **stack_a, stack_t **stack_b)
+/* do_pa:
+*	Pushes the top element of stack b to the top of stack a.
+*	Prints "pa" to the standard output.
+*/
+void	do_pa(t_stack **stack_a, t_stack **stack_b)
 {
 	push(stack_b, stack_a);
-	ft_putstr("pa\n");
+	ft_putstr_fd("pa\n", 1);
 }
 
-void	do_pb(stack_t **stack_a, stack_t **stack_b)
+/* do_pb:
+*	Pushes the top element of stack a to the top of stack b.
+*	Prints "pb" to the standard output.
+*/
+void	do_pb(t_stack **stack_a, t_stack **stack_b)
 {
 	push(stack_a, stack_b);
-	ft_putstr("pb\n");
+	ft_putstr_fd("pb\n", 1);
 }

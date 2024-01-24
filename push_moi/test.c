@@ -3,10 +3,13 @@
 
 int test(t_stack *stack_a)
 {
-	while (stack_a)
+	t_stack *temp;
+
+	temp = stack_a;
+	while (temp)
 	{
-		printf("string : %s\ninteger :%d\nindex : %d\ncost :%d\n\n", stack_a->value, stack_a->integer, stack_a->index, stack_a->cost);
-		stack_a = stack_a->next;
+		printf("binary : %s\nvalue : %d\ninteger :%d\nindex : %d\ncost :%d\n\n", temp->binary, temp->value, temp->integer, temp->index, temp->cost);
+		temp = temp->next;
 	}
 	return (0);
 }

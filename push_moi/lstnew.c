@@ -15,17 +15,11 @@
 t_stack	*lstnew(int content)
 {
 	t_stack	*result;
-	int	i;
 
-	i = 0;
 	result = malloc(sizeof(t_stack));
 	if (!result)
 		return (NULL);
-	while (i < 11)
-	{
-		result->value[i] = 97;
-		i++;
-	}
+	result->value = -1;
 	result->integer = content;
 	result->previous = NULL;
 	result->index = 0;

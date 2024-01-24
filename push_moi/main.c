@@ -28,6 +28,21 @@ char	**ft_dothething(char *argv[])
 	return (split);
 }
 
+
+int	is_sorted(t_stack *stack)
+{
+	t_stack	*temp;
+
+	temp = stack;
+	while (temp && temp->next)
+	{
+		if (temp->value > temp->next->value)
+			return (0);
+		temp = temp->next;
+	}
+	return (1);
+}
+
 int	main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
@@ -46,8 +61,9 @@ int	main(int argc, char *argv[])
 	stack_a = malloc(sizeof (t_stack));
 	stack_b = NULL;
 	ini_stack(split, stack_a);
-//	push_swap(stack_a, stack_b);
+	test(stack_a);
+	if (push_swap(&stack_a, &stack_b) == 1000)
+		write(1, "\n###############################SUCCES###############################\n\n\n\n", ft_strlen("\n###############################SUCCES###############################\n\n\n\n"));
 	test(stack_a);
 	return (0);
 }
-

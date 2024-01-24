@@ -12,33 +12,46 @@
 
 #include "push_swap.h"
 
-static void	rotate(stack_t **stack)
+void	rotate(t_stack **stack)
 {
-	stack_t	*tmp;
-	stack_t	*tail;
+	t_stack	*tmp;
+	t_stack	*tail;
 
 	tmp = *stack;
 	*stack = (*stack)->next;
-	tail = gestack_t_bottom(*stack);
+	tail = get_stack_bottom(*stack);
 	tmp->next = NULL;
 	tail->next = tmp;
 }
 
-void	do_ra(stack_t **stack_a)
+/* do_ra:
+*	Sends the top element of stack a to the bottom.
+*	Prints "ra" to the standard output.
+*/
+void	do_ra(t_stack **stack_a)
 {
 	rotate(stack_a);
-	ft_putstr("ra\n");
+	ft_putstr_fd("ra\n", 1);
 }
 
-void	do_rb(stack_t **stack_b)
+/* do_rb:
+*	Sends the top element of stack b to the bottom.
+*	Prints "rb" to the standard output.
+*/
+void	do_rb(t_stack **stack_b)
 {
 	rotate(stack_b);
-	ft_putstr("rb\n");
+	ft_putstr_fd("rb\n", 1);
 }
 
-void	do_rr(stack_t **stack_a, stack_t **stack_b)
+/* do_rr:
+*	Sends the top element of both stack a and stack b to the bottom
+*	of their respective stacks.
+*	Prints "rr" to the standard output.
+*/
+void	do_rr(t_stack **stack_a, t_stack **stack_b)
 {
 	rotate(stack_a);
 	rotate(stack_b);
-	ft_putstr("rr\n");
+	ft_putstr_fd("rr\n", 1);
 }

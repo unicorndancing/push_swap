@@ -6,10 +6,16 @@ OBJS = $(SRCS:.c=.o)
 
 SRCS = 	error.c \
 		initialize.c \
+		initialize_2.c \
 		verif_value.c \
 		lstaddback.c \
 		lstnew.c \
 		test.c \
+		push_swap.c \
+		push.c \
+		reverse_rotate.c \
+		rotate.c \
+		swap.c \
 		main.c 
 		
 

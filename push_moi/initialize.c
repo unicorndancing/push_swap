@@ -12,34 +12,6 @@
 
 #include "push_swap.h"
 
-void	usable_value(char	*arg, t_stack *stack_a)
-{
-	int	len;
-	int	i;
-	int	j;
-
-	j = 0;
-	i = 0;
-	len = ft_strlen(arg);
-	while (i < 11 - len)
-	{
-		stack_a->value[i] = '0';
-		i++;
-	}
-	if (arg[0] == '-' || arg[0] == '+')
-	{
-		stack_a->value[i++] = '0';
-		j++;
-		if (arg[0] == '-')
-			stack_a->value[0] = '-';
-	}
-	while (arg[j])
-	{
-		stack_a->value[i] = arg[j];
-		i++;
-		j++;
-	}
-}
 
 int	get_last_index(t_stack *stack_a)
 {
@@ -54,6 +26,38 @@ int	get_last_index(t_stack *stack_a)
 		max++;
 	}
 	return (max);
+}
+
+void	usable_value(t_stack *stack_a)
+{
+	t_stack	*ptr;
+	t_stack	*highest;
+	int		value;
+	int		thesize;
+
+	thesize = get_last_index(stack_a);
+	while (thesize > 0)
+	{
+		ptr = stack_a;
+		value = INT_MIN;
+		highest = NULL;
+		while (ptr)
+		{
+			if (ptr->integer == INT_MIN && ptr->value == -1)
+				ptr->value = 1;
+			if (ptr->integer > value && ptr->value == -1)
+			{
+				value = ptr->integer;
+				highest = ptr;
+				ptr = stack_a;
+			}
+			else
+				ptr = ptr->next;
+		}
+		if (highest != NULL)
+			highest->value = thesize;
+		thesize--;
+	}
 }
 
 void	determine_cost_initial(t_stack *stack_a)
@@ -97,15 +101,16 @@ void	ini_stack(char *argv[], t_stack *stack_a)
 	stack_a->index = 1;
 	stack_a->cost = 1;
 	stack_a->next = NULL;
-	usable_value(argv[0], stack_a);
+	stack_a->value = -1;
 	while (argv[i])
 	{
 		nb = ft_atoi(argv[i]);
 		new_chain = lstnew(nb);
 		new_chain->index = i + 1;
-		usable_value(argv[i], new_chain);
 		ft_lstadd(stack_a, new_chain);
 		i++;
 	}
+	usable_value(stack_a);
+	transform_to_binary(stack_a);
 	determine_cost_initial(stack_a);
 }

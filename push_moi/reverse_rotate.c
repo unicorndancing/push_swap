@@ -12,35 +12,35 @@
 
 #include "push_swap.h"
 
-void	rev_rotate(stack_t **stack)
+void	rev_rotate(t_stack *stack)
 {
-	stack_t	*tmp;
-	stack_t	*feet;
-	stack_t	*before_feet;
+	t_stack	*tmp;
+	t_stack	*feet;
+	t_stack	*before_feet;
 
-	feet = gestack_t_bottom(*stack);
-	before_feet = gestack_t_before_bottom(*stack);
-	tmp = *stack;
-	*stack = feet;
-	(*stack)->next = tmp;
+	feet = get_stack_bottom(stack);
+	before_feet = get_stack_before_bottom(stack);
+	tmp = stack;
+	stack = feet;
+	(stack)->next = tmp;
 	before_feet->next = NULL;
 }
 
-void	do_rra(stack_t **stack_a)
+void	do_rra(t_stack *stack_a)
 {
 	rev_rotate(stack_a);
-	ft_putstr("rra\n");
+	ft_putstr_fd("rra\n", 1);
 }
 
-void	do_rrb(stack_t **stack_b)
+void	do_rrb(t_stack *stack_b)
 {
 	rev_rotate(stack_b);
-	ft_putstr("rrb\n");
+	ft_putstr_fd("rrb\n", 1);
 }
 
-void	do_rrr(stack_t **stack_a, stack_t **stack_b)
+void	do_rrr(t_stack *stack_a, t_stack *stack_b)
 {
 	rev_rotate(stack_a);
 	rev_rotate(stack_b);
-	ft_putstr("rrr\n");
+	ft_putstr_fd("rrr\n", 1);
 }
