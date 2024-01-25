@@ -48,6 +48,7 @@ int		push_swap(t_stack **stack_a, t_stack **stack_b);
 int		is_sorted(t_stack *stack);
 
 //initialization value
+int		get_last_index(t_stack *stack_a);
 void	transform_to_binary(t_stack *stack_a);
 t_stack	*lstnew(int content);
 void	ft_lstadd(t_stack *lst, t_stack *new);

@@ -17,22 +17,20 @@ int	verif_no_difference(t_stack *stack_a, int i)
 
 void	sortlittlebylittle(t_stack **stack_a, t_stack **stack_b, int i)
 {
-	while (verif_no_difference(*stack_a, i) == 1)
+	int	nbinstack;
+
+	nbinstack = get_last_index(*stack_a);
+	while (nbinstack > 0)
 	{
-		if ((*stack_a)->binary[i] == '1')
-		{
+		if ((*stack_a)->binary[i] == '0')
 			do_pb(stack_a, stack_b);
-			if ((*stack_b)->next != NULL)
-				do_rb(stack_b);
-		}
 		else
 			do_ra(stack_a);
-		//test(*stack_a);
+		nbinstack--;
 	}
 	while ((*stack_b))
 	{
 		do_pa(stack_a, stack_b);
-		do_ra(stack_a);
 	}
 	return ;
 }
@@ -42,10 +40,10 @@ int	push_swap(t_stack **stack_a, t_stack **stack_b)
 	int	i;
 
 	i = ft_strlen((*stack_a)->binary) - 1;
-	while (is_sorted(*stack_a) == 0)
+	while (is_sorted(*stack_a) == 0 && i != -1)
 	{
 		sortlittlebylittle(stack_a, stack_b, i);
 		i--;
 	}
-	return (test);
+	return (1);
 }

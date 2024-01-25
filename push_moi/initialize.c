@@ -44,7 +44,7 @@ void	usable_value(t_stack *stack_a)
 		while (ptr)
 		{
 			if (ptr->integer == INT_MIN && ptr->value == -1)
-				ptr->value = 1;
+				ptr->value = 0;
 			if (ptr->integer > value && ptr->value == -1)
 			{
 				value = ptr->integer;
@@ -55,7 +55,7 @@ void	usable_value(t_stack *stack_a)
 				ptr = ptr->next;
 		}
 		if (highest != NULL)
-			highest->value = thesize;
+			highest->value = thesize - 1;
 		thesize--;
 	}
 }
