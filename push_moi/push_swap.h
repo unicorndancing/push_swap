@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:42:50 by mlapique          #+#    #+#             */
-/*   Updated: 2024/01/22 17:08:08 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:36:22 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ t_stack	*get_stack_bottom(t_stack *stack);
 t_stack	*get_stack_before_bottom(t_stack *stack);
 t_stack	*ft_lstlas(t_stack *lst);
 int		push_swap(t_stack **stack_a, t_stack **stack_b);
-int		is_sorted(t_stack *stack);
+int		is_sorted(t_stack *stack_a, t_stack *stackb);
 
 //initialization value
 void	free_stack(t_stack *stack);
-void	free_argv(char *argv);
+void	free_argv(char *argv[]);
 int		get_last_index(t_stack *stack_a);
 void	transform_to_binary(t_stack *stack_a);
 t_stack	*lstnew(int content);

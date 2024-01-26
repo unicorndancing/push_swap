@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:42:54 by mlapique          #+#    #+#             */
-/*   Updated: 2024/01/22 17:15:28 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/01/26 15:45:41 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,13 @@ char	**ft_dothething(char *argv[])
 	return (split);
 }
 
-
-int	is_sorted(t_stack *stack)
+int	is_sorted(t_stack *stacka, t_stack *stackb)
 {
 	t_stack	*temp;
 
-	temp = stack;
+	temp = stacka;
+	if (stackb != NULL)
+		return (0);
 	while (temp && temp->next)
 	{
 		if (temp->value > temp->next->value)
@@ -62,10 +63,10 @@ int	main(int argc, char *argv[])
 	stack_b = NULL;
 	ini_stack(split, stack_a);
 	//free_argv(argv);
-	test(stack_a);
+	//test(stack_a);
 	if (push_swap(&stack_a, &stack_b) == 1000)
 		write(1, "\n###############################SUCCES###############################\n\n\n\n", ft_strlen("\n###############################SUCCES###############################\n\n\n\n"));
-	test(stack_a);
+	//test(stack_a);
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);

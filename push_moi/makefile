@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -g3
 RM = rm -rf
 NAME = push
 OBJS = $(SRCS:.c=.o)
