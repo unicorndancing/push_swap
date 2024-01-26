@@ -16,6 +16,7 @@ SRCS = 	error.c \
 		reverse_rotate.c \
 		rotate.c \
 		swap.c \
+		free.c \
 		main.c 
 		
 

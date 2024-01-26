@@ -61,9 +61,12 @@ int	main(int argc, char *argv[])
 	stack_a = malloc(sizeof (t_stack));
 	stack_b = NULL;
 	ini_stack(split, stack_a);
+	//free_argv(argv);
 	test(stack_a);
 	if (push_swap(&stack_a, &stack_b) == 1000)
 		write(1, "\n###############################SUCCES###############################\n\n\n\n", ft_strlen("\n###############################SUCCES###############################\n\n\n\n"));
 	test(stack_a);
+	free_stack(stack_a);
+	free_stack(stack_b);
 	return (0);
 }

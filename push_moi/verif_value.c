@@ -101,6 +101,7 @@ int	check_double(char *argv[])
 	}
 	return (0);
 }
+
 int	verif_values_ini(char *argv[])
 {
 	int	nb_wero;

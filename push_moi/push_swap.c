@@ -25,12 +25,24 @@ void	sortlittlebylittle(t_stack **stack_a, t_stack **stack_b, int i)
 		if ((*stack_a)->binary[i] == '0')
 			do_pb(stack_a, stack_b);
 		else
-			do_ra(stack_a);
+		{
+			if ((*stack_a)->next != NULL)
+				do_ra(stack_a);
+		}
 		nbinstack--;
 	}
-	while ((*stack_b))
+	nbinstack = get_last_index(*stack_b);
+	while (nbinstack > 0)
 	{
-		do_pa(stack_a, stack_b);
+		if ((*stack_b)->binary[i - 1] == '1')
+			do_pa(stack_a, stack_b);
+		else
+		{
+			if ((*stack_b)->next != NULL)
+				do_rb(stack_b);
+		}
+		nbinstack--;
+		// do_pb(stack_a, stack_b);
 	}
 	return ;
 }
@@ -45,5 +57,5 @@ int	push_swap(t_stack **stack_a, t_stack **stack_b)
 		sortlittlebylittle(stack_a, stack_b, i);
 		i--;
 	}
-	return (1);
+	return (1000);
 }
