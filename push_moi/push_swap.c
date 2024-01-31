@@ -1,16 +1,19 @@
 
 #include "push_swap.h"
 
-int	verif_no_difference(t_stack *stack_a, int i)
+int	verif_in_order(t_stack *stack_a)
 {
 	t_stack	*temp;
+	t_stack	*temp2;
 
-	temp = stack_a->next;
-	while (temp)
+	temp = stack_a;
+	temp2 = stack_a->next;
+	while (temp2)
 	{
-		if (stack_a->binary[i] != temp->binary[i])
+		if (temp->value >= temp2->value)
 			return (1);
 		temp = temp->next;
+		temp2 = temp2->next;
 	}
 	return (0);
 }
@@ -52,12 +55,15 @@ void	sortlittlebylittle(t_stack **stack_a, t_stack **stack_b, int i)
 	nbinstack = get_last_index(*stack_a);
 	while (nbinstack > 0 && i > 0)
 	{
-		if ((*stack_a)->binary[i] == '0')
-			do_pb(stack_a, stack_b);
-		else
+		if (verif_in_order(*stack_a) == 1)
 		{
-			if ((*stack_a)->next != NULL)
-				do_ra(stack_a);
+			if ((*stack_a)->binary[i] == '0')
+				do_pb(stack_a, stack_b);
+			else
+			{
+				if ((*stack_a)->next != NULL)
+					do_ra(stack_a);
+			}
 		}
 		nbinstack--;
 	}
@@ -72,6 +78,11 @@ int	push_swap(t_stack **stack_a, t_stack **stack_b)
 {
 	int	i;
 
+	if (get_last_index(*stack_a) == 3)	
+	{
+		do_the_little_sort(stack_a, stack_b);
+		return (0);
+	}
 	i = ft_strlen((*stack_a)->binary) - 1;
 	while (i >= 0)
 	{

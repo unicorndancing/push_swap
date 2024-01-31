@@ -10,13 +10,13 @@ SRCS = 	error.c \
 		verif_value.c \
 		lstaddback.c \
 		lstnew.c \
-		test.c \
 		push_swap.c \
 		push.c \
 		reverse_rotate.c \
 		rotate.c \
 		swap.c \
 		free.c \
+		littlesort.c \
 		main.c 
 		
 

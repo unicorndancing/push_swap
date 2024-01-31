@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:42:50 by mlapique          #+#    #+#             */
-/*   Updated: 2024/01/26 14:36:22 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:27:52 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ t_stack	*get_stack_before_bottom(t_stack *stack);
 t_stack	*ft_lstlas(t_stack *lst);
 int		push_swap(t_stack **stack_a, t_stack **stack_b);
 int		is_sorted(t_stack *stack_a, t_stack *stackb);
+void    do_the_little_sort(t_stack **stack_a, t_stack **stack_b);
 
 //initialization value
 void	free_stack(t_stack *stack);
@@ -60,10 +61,10 @@ void	ini_stack(char *argv[], t_stack *stack_a);
 int		error(int ErrorCode);
 
 // the swaps mfs
-void	do_ss(t_stack *stack_a, t_stack *stack_b);
-void	do_sb(t_stack *stack_b);
-void	do_sa(t_stack *stack_a);
-void	swap(t_stack *stack);
+void	do_ss(t_stack **stack_a, t_stack **stack_b);
+void	do_sb(t_stack **stack_b);
+void	do_sa(t_stack **stack_a);
+void	swap(t_stack **stack);
 
 // the rotate mfs
 void	rotate(t_stack **stack);
@@ -72,10 +73,10 @@ void	do_rb(t_stack **stack_b);
 void	do_rr(t_stack **stack_a, t_stack **stack_b);
 
 // the reverserotate mfs 
-void	rev_rotate(t_stack *stack);
-void	do_rra(t_stack *stack_a);
-void	do_rrb(t_stack *stack_b);
-void	do_rrr(t_stack *stack_a, t_stack *stack_b);
+void	rev_rotate(t_stack **stack);
+void	do_rra(t_stack **stack_a);
+void	do_rrb(t_stack **stack_b);
+void	do_rrr(t_stack **stack_a, t_stack **stack_b);
 
 // the push mfs 
 void	push(t_stack **src, t_stack **dest);

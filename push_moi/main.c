@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:42:54 by mlapique          #+#    #+#             */
-/*   Updated: 2024/01/26 15:45:41 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/01/31 14:37:19 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,7 @@ int	main(int argc, char *argv[])
 	ini_stack(split, stack_a);
 	//free_argv(argv);
 	//test(stack_a);
-	if (push_swap(&stack_a, &stack_b) == 1000)
-		write(1, "\n###############################SUCCES###############################\n\n\n\n", ft_strlen("\n###############################SUCCES###############################\n\n\n\n"));
+	push_swap(&stack_a, &stack_b);
 	//test(stack_a);
 	free_stack(stack_a);
 	free_stack(stack_b);
