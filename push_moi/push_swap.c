@@ -18,7 +18,7 @@ int	verif_in_order(t_stack *stack_a)
 	return (0);
 }
 
-void	thesortstackb(t_stack **stack_a, t_stack **stack_b, int i)
+void	the_sort_stackb(t_stack **stack_a, t_stack **stack_b, int i)
 {
 	int	nbinstack;
 
@@ -36,7 +36,7 @@ void	thesortstackb(t_stack **stack_a, t_stack **stack_b, int i)
 	}
 }
 
-void	sorttheend(t_stack **stack_a, t_stack **stack_b)
+void	sort_the_end(t_stack **stack_a, t_stack **stack_b)
 {
 	int	nbinstack;
 
@@ -48,7 +48,7 @@ void	sorttheend(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-void	sortlittlebylittle(t_stack **stack_a, t_stack **stack_b, int i)
+void	sort_little_by_little(t_stack **stack_a, t_stack **stack_b, int i)
 {
 	int	nbinstack;
 
@@ -68,9 +68,9 @@ void	sortlittlebylittle(t_stack **stack_a, t_stack **stack_b, int i)
 		nbinstack--;
 	}
 	if (i > 1)
-		thesortstackb(stack_a, stack_b, i);
+		the_sort_stackb(stack_a, stack_b, i);
 	if (i == 0)
-		sorttheend(stack_a, stack_b);
+		sort_the_end(stack_a, stack_b);
 	return ;
 }
 
@@ -83,10 +83,20 @@ int	push_swap(t_stack **stack_a, t_stack **stack_b)
 		do_the_little_sort(stack_a, stack_b);
 		return (0);
 	}
+	else if (get_last_index(*stack_a) == 4)
+	{
+		do_the_less_little_sort(stack_a, stack_b);
+		return (0);
+	}
+	else if (get_last_index(*stack_a) == 5)
+	{
+		do_the_less_less_little_sort(stack_a, stack_b);
+		return (0);
+	}
 	i = ft_strlen((*stack_a)->binary) - 1;
 	while (i >= 0)
 	{
-		sortlittlebylittle(stack_a, stack_b, i);
+		sort_little_by_little(stack_a, stack_b, i);
 		i--;
 	}
 	return (1000);

@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:42:50 by mlapique          #+#    #+#             */
-/*   Updated: 2024/01/31 17:27:52 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/02/05 13:42:08 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,15 @@ int		test(t_stack *stack_a);
 int		verif_values_ini(char *argv[]);
 
 //push_swap
+void	do_the_little_sort(t_stack **stack_a, t_stack **stack_b);
+void	do_the_less_little_sort(t_stack **stack_a, t_stack **stack_b);
+void	do_the_less_less_little_sort(t_stack **stack_a, t_stack **stack_b);
 t_stack	*get_stack_bottom(t_stack *stack);
 t_stack	*get_stack_before_bottom(t_stack *stack);
 t_stack	*ft_lstlas(t_stack *lst);
 int		push_swap(t_stack **stack_a, t_stack **stack_b);
 int		is_sorted(t_stack *stack_a, t_stack *stackb);
-void    do_the_little_sort(t_stack **stack_a, t_stack **stack_b);
+int		verif_in_order(t_stack *stack_a);
 
 //initialization value
 void	free_stack(t_stack *stack);
