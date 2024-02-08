@@ -31,7 +31,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 	struct s_stack	*previous;
 	int				index;
-	int				cost;
+	int				valuetemp;
 	char			*binary;
 }				t_stack;
 //test

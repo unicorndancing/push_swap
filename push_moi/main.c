@@ -58,15 +58,10 @@ int	main(int argc, char *argv[])
 		split = ft_dothething(argv);
 	if (verif_values_ini(split) == -1)
 		return (-1);
-	stack_b = malloc(sizeof (t_stack));
 	stack_a = malloc(sizeof (t_stack));
 	stack_b = NULL;
 	ini_stack(split, stack_a);
-	//free_argv(argv);
-	//test(stack_a);
 	push_swap(&stack_a, &stack_b);
-	//test(stack_a);
 	free_stack(stack_a);
-	free_stack(stack_b);
 	return (0);
 }

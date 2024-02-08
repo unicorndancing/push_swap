@@ -66,7 +66,6 @@ void	transform_to_binary(t_stack *stack_a)
 	}
 	while (temp)
 	{
-		temp->binary = malloc (len_nb + 1);
 		temp->binary = binary(temp->value, len_nb);
 		temp = temp->next;
 	}

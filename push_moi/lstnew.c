@@ -23,7 +23,7 @@ t_stack	*lstnew(int content)
 	result->integer = content;
 	result->previous = NULL;
 	result->index = 0;
-	result->cost = 0;
+	result->valuetemp = -1;
 	result->next = NULL;
 	return (result);
 }

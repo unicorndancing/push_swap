@@ -46,6 +46,7 @@ int	verif_integer(char *argv)
 			return (ft_strncmp("2147483647", argv, len));
 		return (ft_strncmp("2147483648", argv, len));
 	}
+	free(argv);
 	return (0);
 }
 

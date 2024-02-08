@@ -78,7 +78,7 @@ int	push_swap(t_stack **stack_a, t_stack **stack_b)
 {
 	int	i;
 
-	if (get_last_index(*stack_a) == 3)	
+	if (get_last_index(*stack_a) == 3)
 	{
 		do_the_little_sort(stack_a, stack_b);
 		return (0);
