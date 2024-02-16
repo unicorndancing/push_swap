@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:49:55 by mlapique          #+#    #+#             */
-/*   Updated: 2024/01/22 17:26:20 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/02/16 14:46:25 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ int	verif_integer(char *argv)
 	int	len;
 	int	sign;
 	int	*psign;
+	int	sec;
 
+	sec = 0;
 	psign = &sign;
 	sign = 1;
 	argv = trim_zero_and_sign(argv, psign);
@@ -43,11 +45,12 @@ int	verif_integer(char *argv)
 	if (len == 10)
 	{
 		if (sign == 1)
-			return (ft_strncmp("2147483647", argv, len));
-		return (ft_strncmp("2147483648", argv, len));
+			sec = ft_strncmp("2147483647", argv, len);
+		else
+			sec = ft_strncmp("2147483648", argv, len);
 	}
 	free(argv);
-	return (0);
+	return (sec);
 }
 
 int	verif_value(char *argv[], int j, int *pnb_wero, int iswero)
@@ -112,8 +115,8 @@ int	verif_values_ini(char *argv[])
 
 	pnb_wero = &nb_wero;
 	iswero = 1;
-	j = 0;
 	nb_wero = 0;
+	j = 0;
 	if (verif_value(argv, j, pnb_wero, iswero) == -1)
 		return (-1);
 	if (*pnb_wero > 1)

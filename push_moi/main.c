@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:42:54 by mlapique          #+#    #+#             */
-/*   Updated: 2024/01/31 14:37:19 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/02/09 18:50:10 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,22 @@ int	is_sorted(t_stack *stacka, t_stack *stackb)
 	return (1);
 }
 
+int	verif_value_empty(char *argv[])
+{
+	int	i;
+
+	i = 1;
+	if (argv[1][0] == '\0')
+		return (error(NOT_A_NUMBER));
+	while (argv[i])
+	{
+		if (argv[i][0] == '\0')
+			return (error(NOT_A_NUMBER));
+		i++;
+	}
+	return (0);
+}
+
 int	main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
@@ -51,6 +67,8 @@ int	main(int argc, char *argv[])
 	char	**split;
 
 	if (argc < 2)
+		return (0);
+	if (verif_value_empty(argv) < 0)
 		return (0);
 	if (argc == 2)
 		split = ft_split(argv[1], ' ');
@@ -61,7 +79,8 @@ int	main(int argc, char *argv[])
 	stack_a = malloc(sizeof (t_stack));
 	stack_b = NULL;
 	ini_stack(split, stack_a);
-	push_swap(&stack_a, &stack_b);
+	if (is_sorted(stack_a, stack_b) == 0)
+		push_swap(&stack_a, &stack_b);
 	free_stack(stack_a);
 	return (0);
 }

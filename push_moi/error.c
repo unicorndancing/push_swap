@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:45:46 by mlapique          #+#    #+#             */
-/*   Updated: 2024/01/31 15:19:14 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/02/16 16:01:48 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 int	error(int Error_code)
 {
 	if (Error_code == 1)
-		write (2, "error not a number", ft_strlen("error not a number"));
+		write (2, "Error\n", 6);
 	else if (Error_code == 2)
-		write (2, "error not a integer", ft_strlen("error not a integer"));
+		write (2, "Error\n", 6);
 	else if (Error_code == 3)
-		write (2, "error too many number", ft_strlen("error too many number"));
+		write (2, "Error\n", 6);
 	else if (Error_code == 4)
-		write (2, "double detected", ft_strlen("double detected"));
+		write (2, "Error\n", 6);
 	return (-1);
 }

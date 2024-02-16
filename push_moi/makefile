@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -g3
+CFLAGS = -Werror -Wextra -Wall -g3
 RM = rm -rf
 NAME = push
 OBJS = $(SRCS:.c=.o)
@@ -26,6 +26,7 @@ $(NAME): $(OBJS)
 	$(MAKE) -C ./libft
 	cp libft/libft.a $(NAME)
 	ar rc $(NAME) $(OBJS)
+	cc -o push_swap $(NAME) 
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@ 

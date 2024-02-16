@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:52:00 by mlapique          #+#    #+#             */
-/*   Updated: 2024/01/22 17:02:55 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/02/09 14:03:33 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	usable_value(t_stack *stack)
 	{
 		while (temp)
 		{
-			if (temp->integer > higher->integer && temp->value == -1
+			if ((temp->integer > higher->integer && temp->value == -1)
 				|| higher->value != -1)
 				higher = temp;
 			temp = temp->next;
@@ -65,6 +65,7 @@ void	ini_stack(char *argv[], t_stack *stack_a)
 	stack_a->valuetemp = -1;
 	stack_a->next = NULL;
 	stack_a->value = -1;
+	stack_a->binary = NULL;
 	while (argv[i])
 	{
 		nb = ft_atoi(argv[i]);

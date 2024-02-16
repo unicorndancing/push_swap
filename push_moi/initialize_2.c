@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 15:19:30 by mlapique          #+#    #+#             */
-/*   Updated: 2024/01/31 15:19:33 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/02/16 13:58:18 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*binary(int nb, int len_nb)
 
 	i = 0;
 	binary = "01";
-	result = malloc (len_nb + 1);
+	result = ft_calloc (len_nb + 1, 1);
 	while (i < len_nb)
 	{
 		result[i] = '0';

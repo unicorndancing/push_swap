@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 14:40:59 by mlapique          #+#    #+#             */
-/*   Updated: 2024/01/19 15:45:59 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/02/09 14:02:09 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ t_stack	*lstnew(int content)
 	result->index = 0;
 	result->valuetemp = -1;
 	result->next = NULL;
+	result->binary = NULL;
 	return (result);
 }

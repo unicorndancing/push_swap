@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 15:21:38 by mlapique          #+#    #+#             */
-/*   Updated: 2024/02/05 17:04:10 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/02/12 15:48:14 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	tempvalue(t_stack **stack)
 	{
 		while (temp)
 		{
-			if (temp->integer > higher->integer && temp->valuetemp == -1
+			if ((temp->integer > higher->integer && temp->valuetemp == -1)
 				|| higher->valuetemp != -1)
 				higher = temp;
 			temp = temp->next;
@@ -66,30 +66,19 @@ void	do_the_little_sort(t_stack **stack_a, t_stack **stack_b)
 
 void	do_the_less_little_sort(t_stack **stack_a, t_stack **stack_b)
 {
-	int	i;
-
-	i = 0;
-	while (verif_in_order(*stack_a) == 1 || (*stack_b)->value < 4)
+	while (get_last_index((*stack_b)) != 1)
 	{
 		if ((*stack_a)->value == 0)
 			do_pb(stack_a, stack_b);
 		else if ((*stack_b) == NULL)
 			do_ra(stack_a);
-		else
-		{
-			do_the_little_sort(stack_a, stack_b);
-			do_pa(stack_a, stack_b);
-		}
-		i++;
-		if (i == 50)
-			return ;
 	}
+	do_the_little_sort(stack_a, stack_b);
+	do_pa(stack_a, stack_b);
 }
 
 void	do_the_less_less_little_sort(t_stack **stack_a, t_stack **stack_b)
 {
-	int	i;
-
 	while (get_last_index(*stack_b) != 2)
 	{
 		if ((*stack_a)->value == 0 || (*stack_a)->value == 1)
@@ -98,7 +87,6 @@ void	do_the_less_less_little_sort(t_stack **stack_a, t_stack **stack_b)
 		}
 		else
 			do_ra(stack_a);
-		i++;
 	}
 	do_the_little_sort(stack_a, stack_b);
 	if ((*stack_b)->value < (*stack_b)->next->value)
