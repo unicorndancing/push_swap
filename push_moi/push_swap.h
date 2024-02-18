@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:42:50 by mlapique          #+#    #+#             */
-/*   Updated: 2024/02/05 13:42:08 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/02/18 08:04:27 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 
 enum e_ErrorCode
 {
-	NOT_A_NUMBER = 1,
-	NOT_AN_INTEGER = 2,
-	TOO_MANY_ZERO = 3,
-	DOUBLE = 4,
+	NOT_A_NUMBER = -10,
+	NOT_AN_INTEGER = -20,
+	TOO_MANY_ZERO = -30,
+	DOUBLE = -40,
 	SUCCES = 1000,
 };
 

@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:45:46 by mlapique          #+#    #+#             */
-/*   Updated: 2024/02/16 16:01:48 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/02/18 08:05:56 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int	error(int Error_code)
 {
-	if (Error_code == 1)
+	if (Error_code == NOT_A_NUMBER)
 		write (2, "Error\n", 6);
-	else if (Error_code == 2)
+	else if (Error_code == NOT_AN_INTEGER)
 		write (2, "Error\n", 6);
-	else if (Error_code == 3)
+	else if (Error_code == TOO_MANY_ZERO)
 		write (2, "Error\n", 6);
-	else if (Error_code == 4)
+	else if (Error_code == DOUBLE)
 		write (2, "Error\n", 6);
 	return (-1);
 }
