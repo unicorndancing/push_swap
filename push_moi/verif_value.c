@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:49:55 by mlapique          #+#    #+#             */
-/*   Updated: 2024/02/16 14:46:25 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/02/19 18:48:29 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	verif_integer(char *argv)
 	psign = &sign;
 	sign = 1;
 	argv = trim_zero_and_sign(argv, psign);
+	if (!argv)
+		return (-1);
 	len = ft_strlen(argv);
 	if (len > 10)
 		return (error(NOT_AN_INTEGER));

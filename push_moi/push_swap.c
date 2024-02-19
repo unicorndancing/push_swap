@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 13:49:51 by mlapique          #+#    #+#             */
-/*   Updated: 2024/02/09 14:20:36 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:13:14 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,27 +88,25 @@ void	sort_little_by_little(t_stack **stack_a, t_stack **stack_b, int i)
 int	push_swap(t_stack **stack_a, t_stack **stack_b)
 {
 	int	i;
+	int	last_index;
 
-	if (get_last_index(*stack_a) == 3)
-	{
+	last_index = get_last_index(*stack_a);
+	i = 0;
+	if ((*stack_a)->binary != NULL)
+		i = ft_strlen((*stack_a)->binary) - 1;
+	if (last_index == 3)
 		do_the_little_sort(stack_a, stack_b);
-		return (0);
-	}
-	else if (get_last_index(*stack_a) == 4)
-	{
+	else if (last_index == 4)
 		do_the_less_little_sort(stack_a, stack_b);
-		return (0);
-	}
-	else if (get_last_index(*stack_a) == 5)
-	{
+	else if (last_index == 5)
 		do_the_less_less_little_sort(stack_a, stack_b);
-		return (0);
-	}
-	i = ft_strlen((*stack_a)->binary) - 1;
-	while (i >= 0)
+	else
 	{
-		sort_little_by_little(stack_a, stack_b, i);
-		i--;
+		while (i >= 0)
+		{
+			sort_little_by_little(stack_a, stack_b, i);
+			i--;
+		}
 	}
 	return (1000);
 }

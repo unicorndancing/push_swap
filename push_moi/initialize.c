@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:52:00 by mlapique          #+#    #+#             */
-/*   Updated: 2024/02/09 14:03:33 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:58:00 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,10 @@ void	usable_value(t_stack *stack)
 	}
 }
 
-void	ini_stack(char *argv[], t_stack *stack_a)
+void	ini_first_stack(char *argv[], t_stack *stack_a)
 {
-	int		i;
-	int		nb;
-	t_stack	*new_chain;
+	int	nb;
 
-	i = 1;
 	nb = ft_atoi(argv[0]);
 	stack_a->integer = nb;
 	stack_a->index = 1;
@@ -66,14 +63,28 @@ void	ini_stack(char *argv[], t_stack *stack_a)
 	stack_a->next = NULL;
 	stack_a->value = -1;
 	stack_a->binary = NULL;
+}
+
+int	ini_stack(char *argv[], t_stack *stack_a)
+{
+	int		i;
+	int		nb;
+	t_stack	*new_chain;
+
+	i = 1;
+	ini_first_stack(argv, stack_a);
 	while (argv[i])
 	{
 		nb = ft_atoi(argv[i]);
 		new_chain = lstnew(nb);
+		if (new_chain == NULL)
+			return (-1);
 		new_chain->index = i + 1;
 		ft_lstadd(stack_a, new_chain);
 		i++;
 	}
 	usable_value(stack_a);
-	transform_to_binary(stack_a);
+	if (transform_to_binary(stack_a) == -1)
+		return (error(MALLOC));
+	return (0);
 }

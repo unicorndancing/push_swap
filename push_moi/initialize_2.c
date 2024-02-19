@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 15:19:30 by mlapique          #+#    #+#             */
-/*   Updated: 2024/02/19 11:04:53 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:18:13 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*binary(int nb, int len_nb)
 	i = 0;
 	binary = "01";
 	result = ft_calloc (len_nb + 1, 1);
+	if (!result)
+		return (NULL);
 	while (i < len_nb)
 	{
 		result[i] = '0';
@@ -35,7 +37,7 @@ char	*binary(int nb, int len_nb)
 	return (result);
 }
 
-void	transform_to_binary(t_stack *stack_a)
+int	transform_to_binary(t_stack *stack_a)
 {
 	int		max;
 	t_stack	*temp;
@@ -52,6 +54,9 @@ void	transform_to_binary(t_stack *stack_a)
 	while (temp)
 	{
 		temp->binary = binary(temp->value, len_nb);
+		if (temp->binary == NULL)
+			return (-1);
 		temp = temp->next;
 	}
+	return (0);
 }

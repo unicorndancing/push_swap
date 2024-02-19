@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:42:50 by mlapique          #+#    #+#             */
-/*   Updated: 2024/02/19 11:13:26 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:23:50 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ enum e_ErrorCode
 	TOO_MANY_ZERO = -30,
 	DOUBLE = -40,
 	SUCCES = 1000,
+	MALLOC = -50,
 };
 
 typedef struct s_stack
@@ -33,6 +34,7 @@ typedef struct s_stack
 	int				index;
 	int				valuetemp;
 	char			*binary;
+	int				error;
 }				t_stack;
 
 //verification value
@@ -55,10 +57,10 @@ int		push_swap(t_stack **stack_a, t_stack **stack_b);
 //initialization value
 void	free_stack(t_stack *stack);
 void	free_argv(char *argv[]);
-void	transform_to_binary(t_stack *stack_a);
+int		transform_to_binary(t_stack *stack_a);
 t_stack	*lstnew(int content);
 void	ft_lstadd(t_stack *lst, t_stack *new);
-void	ini_stack(char *argv[], t_stack *stack_a);
+int		ini_stack(char *argv[], t_stack *stack_a);
 
 // the errors
 int		error(int ErrorCode);

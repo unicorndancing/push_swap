@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:42:54 by mlapique          #+#    #+#             */
-/*   Updated: 2024/02/09 18:50:10 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:15:01 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,11 @@ int	main(int argc, char *argv[])
 	if (verif_values_ini(split) == -1)
 		return (-1);
 	stack_a = malloc(sizeof (t_stack));
+	if (!stack_a)
+		return (error(MALLOC));
 	stack_b = NULL;
-	ini_stack(split, stack_a);
+	if (ini_stack(split, stack_a) == -1)
+		return (error(MALLOC));
 	if (is_sorted(stack_a, stack_b) == 0)
 		push_swap(&stack_a, &stack_b);
 	free_stack(stack_a);
