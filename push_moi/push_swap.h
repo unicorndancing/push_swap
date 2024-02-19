@@ -6,7 +6,7 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:42:50 by mlapique          #+#    #+#             */
-/*   Updated: 2024/02/18 08:04:27 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/02/19 11:13:26 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,27 +34,27 @@ typedef struct s_stack
 	int				valuetemp;
 	char			*binary;
 }				t_stack;
-//test
-int		test(t_stack *stack_a);
 
 //verification value
 int		verif_values_ini(char *argv[]);
+
+// the usefulls
+t_stack	*get_stack_bottom(t_stack *stack);
+t_stack	*get_stack_before_bottom(t_stack *stack);
+t_stack	*ft_lstlas(t_stack *lst);
+int		is_sorted(t_stack *stack_a, t_stack *stackb);
+int		verif_in_order(t_stack *stack_a);
+int		get_last_index(t_stack *stack_a);
 
 //push_swap
 void	do_the_little_sort(t_stack **stack_a, t_stack **stack_b);
 void	do_the_less_little_sort(t_stack **stack_a, t_stack **stack_b);
 void	do_the_less_less_little_sort(t_stack **stack_a, t_stack **stack_b);
-t_stack	*get_stack_bottom(t_stack *stack);
-t_stack	*get_stack_before_bottom(t_stack *stack);
-t_stack	*ft_lstlas(t_stack *lst);
 int		push_swap(t_stack **stack_a, t_stack **stack_b);
-int		is_sorted(t_stack *stack_a, t_stack *stackb);
-int		verif_in_order(t_stack *stack_a);
 
 //initialization value
 void	free_stack(t_stack *stack);
 void	free_argv(char *argv[]);
-int		get_last_index(t_stack *stack_a);
 void	transform_to_binary(t_stack *stack_a);
 t_stack	*lstnew(int content);
 void	ft_lstadd(t_stack *lst, t_stack *new);

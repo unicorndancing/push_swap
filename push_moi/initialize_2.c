@@ -6,26 +6,11 @@
 /*   By: mlapique <mlapique@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 15:19:30 by mlapique          #+#    #+#             */
-/*   Updated: 2024/02/16 13:58:18 by mlapique         ###   ########.fr       */
+/*   Updated: 2024/02/19 11:04:53 by mlapique         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	get_last_index2(t_stack *stack_a)
-{
-	t_stack	*temp;
-	int		max;
-
-	temp = stack_a;
-	max = 0;
-	while (temp)
-	{
-		temp = temp->next;
-		max++;
-	}
-	return (max);
-}
 
 char	*binary(int nb, int len_nb)
 {
@@ -57,7 +42,7 @@ void	transform_to_binary(t_stack *stack_a)
 	int		len_nb;
 
 	len_nb = 1;
-	max = get_last_index2(stack_a);
+	max = get_last_index(stack_a);
 	temp = stack_a;
 	while (max >= 1)
 	{
